@@ -45,3 +45,9 @@
 - Dev server runs on port 3001 (3000 is usually taken)
 - Hot reload works for components but may need restart for content changes
 - TypeScript errors about `queryContent` can be ignored (auto-imported by Nuxt)
+
+## Deployment (Vercel)
+- Uses libsql database adapter instead of better-sqlite3 for serverless compatibility
+- Nitro preset is set to 'vercel' in nuxt.config.ts
+- Content database is configured to use file:.nuxt/content.db with libsql driver
+- Requires @libsql/client package for production deployments
