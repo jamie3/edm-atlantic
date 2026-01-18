@@ -8,7 +8,10 @@
 useHead({
   title: 'EDM Atlantic - Electronic Music Artists',
   meta: [
-    { name: 'description', content: 'Showcasing Electronic Music DJs and Artists from Atlantic Canada' }
-  ]
-})
+    {
+      name: 'description',
+      content: 'Showcasing Electronic Music DJs and Artists from Atlantic Canada',
+    },
+  ],
+});
 </script>

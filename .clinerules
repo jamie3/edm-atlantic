@@ -46,10 +46,20 @@
 - Hot reload works for components but may need restart for content changes
 - TypeScript errors about `queryContent` can be ignored (auto-imported by Nuxt)
 
+## Linting & Formatting
+- ESLint configured with @nuxt/eslint for Nuxt-specific rules
+- Prettier configured with single quotes, no semicolons, 100 char line width
+- Available scripts:
+  - `yarn lint` - Check for linting errors
+  - `yarn lint:fix` - Auto-fix linting errors
+  - `yarn format` - Format all files with Prettier
+  - `yarn format:check` - Check formatting without changes
+
 ## Deployment (Vercel)
 - Uses Vercel preset with prerendering enabled for optimal performance
-- Nuxt Content works out-of-the-box without additional database configuration
+- Nuxt Content auto-detects the appropriate database adapter:
+  - Development: uses better-sqlite3 (devDependency)
+  - Production/Serverless: uses libsql via @libsql/client (dependency)
 - Content is processed during build time and included in the deployment
-- Requires @libsql/client package as a dependency
+- Both better-sqlite3 and @libsql/client must be installed
 - Build command: `yarn build` (configured in vercel.json)
-- If issues persist, try using `yarn generate` for static site generation

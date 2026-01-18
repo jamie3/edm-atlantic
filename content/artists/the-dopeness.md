@@ -55,6 +55,7 @@ Emerging from Halifax's vibrant hip-hop scene, The Dopeness started as a beat ma
 ## Signature Sound
 
 The Dopeness specializes in blending:
+
 - Classic hip-hop with modern electronic production
 - Trap and bass music elements
 - R&B and soul influences

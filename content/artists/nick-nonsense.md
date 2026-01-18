@@ -60,6 +60,7 @@ Nick's sound is impossible to pin down to a single genre. One moment you might h
 ## Live Shows
 
 Nick's live performances are known for:
+
 - Unexpected genre switches that somehow flow perfectly
 - High-energy crowd interaction
 - Bass-heavy drops that shake the venue

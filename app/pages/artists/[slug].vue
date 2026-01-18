@@ -6,8 +6,8 @@
           ← Back to Artists
         </NuxtLink>
         <div class="flex flex-col md:flex-row items-center md:items-center gap-8">
-          <div 
-            v-if="artist?.image" 
+          <div
+            v-if="artist?.image"
             class="w-48 h-48 rounded-xl overflow-hidden flex-shrink-0 shadow-xl"
           >
             <img :src="artist.image" :alt="artist.title" class="w-full h-full object-cover" />
@@ -19,14 +19,15 @@
               <p v-if="artist?.city && artist?.province" class="text-lg">
                 📍 {{ artist.city }}, {{ artist.province }}
               </p>
-              <p v-if="artist?.yearsActive" class="text-lg">
-                🎵 {{ artist.yearsActive }}
-              </p>
+              <p v-if="artist?.yearsActive" class="text-lg">🎵 {{ artist.yearsActive }}</p>
             </div>
-            <div v-if="artist?.genres && artist.genres.length" class="flex flex-wrap gap-2 justify-center md:justify-start">
-              <span 
-                v-for="genre in artist.genres" 
-                :key="genre" 
+            <div
+              v-if="artist?.genres && artist.genres.length"
+              class="flex flex-wrap gap-2 justify-center md:justify-start"
+            >
+              <span
+                v-for="genre in artist.genres"
+                :key="genre"
                 class="px-4 py-2 bg-white/20 backdrop-blur-lg rounded-full text-sm font-medium"
               >
                 {{ genre }}
@@ -42,46 +43,46 @@
       <section v-if="artist?.links" class="mb-12 bg-white p-8 rounded-xl shadow-sm">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Links</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <a 
-            v-if="artist.links.website" 
-            :href="artist.links.website" 
-            target="_blank" 
+          <a
+            v-if="artist.links.website"
+            :href="artist.links.website"
+            target="_blank"
             rel="noopener"
             class="flex items-center justify-center px-4 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors font-medium"
           >
             🌐 Website
           </a>
-          <a 
-            v-if="artist.links.soundcloud" 
-            :href="artist.links.soundcloud" 
-            target="_blank" 
+          <a
+            v-if="artist.links.soundcloud"
+            :href="artist.links.soundcloud"
+            target="_blank"
             rel="noopener"
             class="flex items-center justify-center px-4 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium"
           >
             🎵 SoundCloud
           </a>
-          <a 
-            v-if="artist.links.mixcloud" 
-            :href="artist.links.mixcloud" 
-            target="_blank" 
+          <a
+            v-if="artist.links.mixcloud"
+            :href="artist.links.mixcloud"
+            target="_blank"
             rel="noopener"
             class="flex items-center justify-center px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium"
           >
             🎧 Mixcloud
           </a>
-          <a 
-            v-if="artist.links.bandcamp" 
-            :href="artist.links.bandcamp" 
-            target="_blank" 
+          <a
+            v-if="artist.links.bandcamp"
+            :href="artist.links.bandcamp"
+            target="_blank"
             rel="noopener"
             class="flex items-center justify-center px-4 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors font-medium"
           >
             💿 Bandcamp
           </a>
-          <a 
-            v-if="artist.links.beatport" 
-            :href="artist.links.beatport" 
-            target="_blank" 
+          <a
+            v-if="artist.links.beatport"
+            :href="artist.links.beatport"
+            target="_blank"
             rel="noopener"
             class="flex items-center justify-center px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-medium"
           >
@@ -99,12 +100,15 @@
       </section>
 
       <!-- Music Section -->
-      <section v-if="artist?.music && artist.music.length" class="mb-12 bg-white p-8 rounded-xl shadow-sm">
+      <section
+        v-if="artist?.music && artist.music.length"
+        class="mb-12 bg-white p-8 rounded-xl shadow-sm"
+      >
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Music</h2>
         <div class="flex flex-col">
-          <MusicTrack 
-            v-for="(track, index) in artist.music" 
-            :key="index" 
+          <MusicTrack
+            v-for="(track, index) in artist.music"
+            :key="index"
             :track="track"
             :artist-slug="artist.path?.split('/').pop() || artist.slug || ''"
           />
@@ -112,12 +116,15 @@
       </section>
 
       <!-- DJ Sets Section -->
-      <section v-if="artist?.sets && artist.sets.length" class="mb-12 bg-white p-8 rounded-xl shadow-sm">
+      <section
+        v-if="artist?.sets && artist.sets.length"
+        class="mb-12 bg-white p-8 rounded-xl shadow-sm"
+      >
         <h2 class="text-3xl font-bold text-gray-900 mb-6">DJ Sets</h2>
         <div class="flex flex-col">
-          <SetItem 
-            v-for="(set, index) in artist.sets" 
-            :key="index" 
+          <SetItem
+            v-for="(set, index) in artist.sets"
+            :key="index"
             :set="set"
             :artist-slug="artist.path?.split('/').pop() || artist.slug || ''"
           />
@@ -128,11 +135,11 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const slug = route.params.slug as string
+const route = useRoute();
+const slug = route.params.slug as string;
 
-const { getArtist } = useArtist()
-const artist = await getArtist(slug)
+const { getArtist } = useArtist();
+const artist = await getArtist(slug);
 </script>
 
 <style>

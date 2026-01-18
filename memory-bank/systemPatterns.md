@@ -3,6 +3,7 @@
 ## Architecture Overview
 
 ### Content-Driven Architecture
+
 - Uses Nuxt Content for file-based content management
 - Artist data stored as Markdown files in `/content/artists/`
 - Dynamic routing for artist pages via `[...slug].vue`
@@ -43,6 +44,7 @@ App (app.vue)
 ## Key Technical Patterns
 
 ### Like/Star System
+
 ```typescript
 // Composable: useLikes.ts
 - getLikes(itemId) → boolean
@@ -51,6 +53,7 @@ App (app.vue)
 ```
 
 ### Content Schema
+
 ```yaml
 ---
 title: Artist Name
@@ -71,21 +74,25 @@ sets:
 ```
 
 ### Routing Pattern
+
 - `/` - Homepage with artist grid
 - `/artists/:slug` - Individual artist page
 
 ## Design Patterns
 
 ### Composables for Reusability
+
 - `useLikes()` - Like management
 - `useArtists()` - Artist data fetching (if needed)
 
 ### Component Composition
+
 - Small, focused components
 - Props for data passing
 - Emits for events
 
 ### Responsive Design
+
 - Mobile-first approach
 - CSS Grid/Flexbox for layouts
 - Breakpoints for different screen sizes
