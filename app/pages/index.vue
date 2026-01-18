@@ -1,12 +1,33 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
     <header
-      class="text-center py-12 px-6 bg-gradient-to-br from-indigo-500 to-purple-600 text-white"
+      class="relative text-center py-12 px-6 text-white overflow-hidden"
+      style="background-image: url('/images/a-dj-playing-on-turntables.png'); background-size: cover; background-position: center;"
     >
-      <h1 class="text-5xl md:text-6xl font-black mb-2 tracking-tight">EDM Atlantic</h1>
-      <p class="text-xl md:text-2xl font-light opacity-95">
-        Showcasing Electronic Music DJs and Artists from the Atlantic Canada
-      </p>
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/80 to-purple-900/80"></div>
+      
+      <!-- Content -->
+      <div class="relative z-10">
+        <h1 class="text-5xl md:text-6xl font-black mb-2 tracking-tight">EDM Atlantic</h1>
+        <p class="text-xl md:text-2xl font-light opacity-95">
+          Showcasing Electronic Music DJs and Artists from the Atlantic Canada
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <NuxtLink
+            to="/subscribe"
+            class="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            📧 Subscribe to Newsletter
+          </NuxtLink>
+          <NuxtLink
+            to="/submit"
+            class="px-6 py-3 bg-indigo-700 text-white font-semibold rounded-lg hover:bg-indigo-800 transition-colors"
+          >
+            🎵 Submit Your Profile
+          </NuxtLink>
+        </div>
+      </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
@@ -19,7 +40,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="Search artists..."
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             />
           </div>
 
@@ -27,7 +48,7 @@
           <div class="md:w-64">
             <select
               v-model="selectedGenre"
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             >
               <option value="">All Genres</option>
               <option v-for="genre in allGenres" :key="genre" :value="genre">
@@ -40,7 +61,7 @@
           <div class="md:w-48">
             <select
               v-model="sortOrder"
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             >
               <option value="a-z">A-Z</option>
               <option value="z-a">Z-A</option>
@@ -49,7 +70,7 @@
         </div>
 
         <!-- Results count -->
-        <div class="text-gray-600">
+        <div class="text-gray-600 dark:text-gray-300">
           Showing {{ filteredArtists.length }} of {{ artists?.length || 0 }} artists
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
     <div class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-8 px-6">
       <div class="max-w-7xl mx-auto">
         <NuxtLink to="/" class="inline-block text-white/90 hover:text-white mb-8 transition-colors">
@@ -40,8 +40,8 @@
 
     <main class="max-w-7xl mx-auto px-6 py-12">
       <!-- Links Section -->
-      <section v-if="artist?.links" class="mb-12 bg-white p-8 rounded-xl shadow-sm">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Links</h2>
+      <section v-if="artist?.links" class="mb-12 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Links</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           <a
             v-if="artist.links.website"
@@ -92,9 +92,9 @@
       </section>
 
       <!-- Biography Section -->
-      <section v-if="artist?.body" class="mb-12 bg-white p-8 rounded-xl shadow-sm">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Biography</h2>
-        <div class="prose prose-lg max-w-none text-gray-700">
+      <section v-if="artist?.body" class="mb-12 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Biography</h2>
+        <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300">
           <ContentRenderer :value="artist" />
         </div>
       </section>
@@ -102,9 +102,9 @@
       <!-- Music Section -->
       <section
         v-if="artist?.music && artist.music.length"
-        class="mb-12 bg-white p-8 rounded-xl shadow-sm"
+        class="mb-12 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm"
       >
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Music</h2>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Music</h2>
         <div class="flex flex-col">
           <MusicTrack
             v-for="(track, index) in artist.music"
@@ -118,9 +118,9 @@
       <!-- DJ Sets Section -->
       <section
         v-if="artist?.sets && artist.sets.length"
-        class="mb-12 bg-white p-8 rounded-xl shadow-sm"
+        class="mb-12 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm"
       >
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">DJ Sets</h2>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">DJ Sets</h2>
         <div class="flex flex-col">
           <SetItem
             v-for="(set, index) in artist.sets"

@@ -34,6 +34,20 @@
 - Like system uses composable `useLikes()` with localStorage
 - All artist-related components expect the full artist schema
 
+## Dark Mode
+- Dark mode toggle available via fixed button in bottom-right corner
+- Theme preference saved to localStorage
+- Respects system preference on first visit
+- Composable: `useDarkMode()` provides `isDark`, `toggleDarkMode()`, `initTheme()`
+- Tailwind configured with `darkMode: 'class'`
+- Use `dark:` prefix for dark mode styles (e.g., `dark:bg-gray-900`)
+
+## Pages
+- `/` - Homepage with artist grid, search, filtering, and sorting
+- `/artists/[slug]` - Individual artist detail pages
+- `/subscribe` - Mailing list subscription page (TODO: integrate with email service)
+- `/submit` - Artist profile submission form (TODO: integrate with backend/email service)
+
 ## Known Issues
 - If artists don't display on homepage, check:
   1. Browser console for query results
