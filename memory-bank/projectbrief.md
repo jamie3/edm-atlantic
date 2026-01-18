@@ -1,7 +1,7 @@
 # Project Brief: EDM Atlantic
 
 ## Project Overview
-EDM Atlantic is a website showcasing local Electronic Music DJs and Artists from the Atlantic region.
+EDM Atlantic is a website showcasing local Electronic Music DJs and Artists from the Atlantic Canada.
 
 ## Core Requirements
 

@@ -1,0 +1,47 @@
+# EDM Atlantic - Project Rules
+
+## Package Manager
+- **Use yarn, NOT npm** for all package management tasks
+- Project uses Yarn 4.2.2
+
+## Content Structure
+- Artist content files are in `/content/artists/`
+- Each artist is a Markdown file with frontmatter containing:
+  - title, slug, realName (optional), city, province, description
+  - yearsActive, genres (array)
+  - image (URL)
+  - links object (website, soundcloud, mixcloud, bandcamp, beatport)
+  - music array (title, url, year)
+  - sets array (title, url, date)
+
+## Query Patterns (Nuxt Content v3)
+- Project uses @nuxt/content v3.10.0 which uses `queryCollection()` (NOT `queryContent()`)
+- Collections are defined in content.config.ts
+- Artist queries: `queryCollection('artists').first()` or `queryCollection('artists').all()`
+- Individual artist: `queryCollection('artists').where('slug', '=', slug).first()`
+- `queryCollection` is auto-imported by Nuxt Content v3
+
+## Architecture: Query Content Directly (NO server API)
+- ❌ DO NOT create server/api routes to read content files
+- ❌ DO NOT use fs/readFile or gray-matter to parse content manually
+- ✅ Query content directly in pages/components using `queryCollection()`
+- ✅ Use `useAsyncData()` wrapper for proper caching and SSR
+- Nuxt Content already provides a database, cache, SSR/SSG support, and type safety
+- Server APIs are only needed for: external services, auth secrets, database writes, or non-content aggregation
+
+## Component Patterns
+- ArtistCard uses `description` field (NOT `bio`)
+- Like system uses composable `useLikes()` with localStorage
+- All artist-related components expect the full artist schema
+
+## Known Issues
+- If artists don't display on homepage, check:
+  1. Browser console for query results
+  2. Server logs for Nuxt Content errors
+  3. Ensure dev server is restarted after content changes
+  4. Verify content files have correct frontmatter format
+
+## Development
+- Dev server runs on port 3001 (3000 is usually taken)
+- Hot reload works for components but may need restart for content changes
+- TypeScript errors about `queryContent` can be ignored (auto-imported by Nuxt)

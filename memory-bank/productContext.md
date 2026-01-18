@@ -1,7 +1,7 @@
 # Product Context
 
 ## Purpose
-EDM Atlantic exists to promote and showcase local Electronic Music DJs and Artists in the Atlantic region, creating a centralized platform for the EDM community.
+EDM Atlantic exists to promote and showcase local Electronic Music DJs and Artists in the Atlantic Canada, creating a centralized platform for the EDM community.
 
 ## Problems It Solves
 - **Discoverability**: Makes it easy for fans to discover local EDM talent

@@ -14,6 +14,7 @@
           </div>
           <div class="flex-1 text-center md:text-left">
             <h1 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">{{ artist?.title }}</h1>
+            <p v-if="artist?.realName" class="text-xl text-white/80 mb-4">{{ artist.realName }}</p>
             <div class="flex flex-col gap-2 mb-4 text-white/90">
               <p v-if="artist?.city && artist?.province" class="text-lg">
                 📍 {{ artist.city }}, {{ artist.province }}
@@ -105,7 +106,7 @@
             v-for="(track, index) in artist.music" 
             :key="index" 
             :track="track"
-            :artist-slug="artist._path?.split('/').pop() || ''"
+            :artist-slug="artist.path?.split('/').pop() || artist.slug || ''"
           />
         </div>
       </section>
@@ -118,7 +119,7 @@
             v-for="(set, index) in artist.sets" 
             :key="index" 
             :set="set"
-            :artist-slug="artist._path?.split('/').pop() || ''"
+            :artist-slug="artist.path?.split('/').pop() || artist.slug || ''"
           />
         </div>
       </section>
@@ -128,11 +129,10 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const slug = route.params.slug
+const slug = route.params.slug as string
 
-const { data: artist } = await useAsyncData(`artist-${slug}`, () => 
-  queryContent('artists').where({ slug: slug }).findOne()
-)
+const { getArtist } = useArtist()
+const artist = await getArtist(slug)
 </script>
 
 <style>
