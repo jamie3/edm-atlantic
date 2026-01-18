@@ -7,16 +7,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
   
-  // Content configuration for production/serverless
-  content: {
-    database: {
-      type: 'libsql',
-      url: 'file:.nuxt/content.db'
-    }
-  },
-  
-  // Nitro configuration for Vercel
+  // Nitro configuration for Vercel with prerendering
   nitro: {
-    preset: 'vercel'
+    preset: 'vercel',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
+    }
   }
 })
